@@ -1,6 +1,9 @@
 #  Week1
-
 ## The TCP/IP Five layer Network Model
+
+![network 5 layers](./pics/network%205%20layers.png)
+
+
 
 | Layer name  | Protocols         | Protocol data unit | Addressing  |
 | ----------- | ----------------- | ------------------ | ----------- |
@@ -118,9 +121,9 @@ A standard cat six cable has eight wires consisting of four twisted pairs inside
 
 Twisted pair network cables are terminated with a plug that takes the individual internal wires and exposes them. The most common plug is known as an RJ45, or Registered Jack 45. 
 
-![rj45 prot lint led](/Users/hualiu/Documents/tech/networks/pics/rj45 prot lint led.png)
+![rj45 prot lint led](./pics/rj45%20prot%20lint%20led.png)
 
-![rj45 activity led](/Users/hualiu/Documents/tech/networks/pics/rj45 activity led.png)
+![rj45 activity led](./pics/rj45%20activity%20led.png)
 
 
 
@@ -132,7 +135,7 @@ Ethernet  => 1980appeared => 1983first std
 
 Ethernet has a way to solve the Collision Domain Problem before switch hubs were invented. And the way is known as _Carrier Sense Multiple Access With Collision Detection_, abbr as __CSMA/CD__. Specifically, it can determine when the communications channels are clear, and when a device is free to transmit data. And if colision detected, then both nodes rest for a random time then try again.
 
-
+![Ethernet Frame](./pics/Dessecring%20an%20Ethernet%20Frame.png)
 
 MAC Address:
 
@@ -142,7 +145,7 @@ MAC Address:
 - Example: 00 60 2F 3A 07 BC
 - another way of representing a MAC address is 6 _Octet_
   - an Octet is a number of 8 bits, example `2F`
-- The first 3 Octet is known as OUI. These are assigned to individual hardware manufacturers by the IEEE or the Institute of Electrical and Electronics Engineers. And the Last 3 were assigned by the manufacturer and they make sure they are globally unique.![mac addr](/Users/hualiu/Documents/tech/networks/pics/mac addr.png)
+- The first 3 Octet is known as OUI. These are assigned to individual hardware manufacturers by the IEEE or the Institute of Electrical and Electronics Engineers. And the Last 3 were assigned by the manufacturer and they make sure they are globally unique.![mac addr](./pics/mac%20addr.png)
 
 
 
