@@ -1,0 +1,6 @@
+beautifulsoup4
+lxml # bs4 needs a parser
+HTMLParser
+
+requests-html
+lxml_html_clean

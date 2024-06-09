@@ -1,0 +1,13 @@
+data/output
+
+# top_100_arts extracting practice
+data/input/top_100_art*
+
+src/top_100_arts.py
+
+venv
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
