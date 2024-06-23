@@ -1,31 +1,232 @@
 <!DOCTYPE html>
 
 <html>
-<h2>Static Content</h2>
+
+<br>
+<h2>---------------------`header`-----------------------------</h2>
 <h1>Header 1</h1>
 <h2>Header 2</h2>
+<h3>Header 3</h3>
+<h4>Header 4</h4>
+<h5>Header 5</h5>
+<h6>Header 6</h6>
 
-<p>paragraph</p>
+<br>
+<h2>---------------------`paragraph`-----------------------------</h2>
+<p>
+    This paragraph
+    contains a lot of lines
+    but they are ignored.
+</p>
+<p>
+    This paragraph<br>
+    contains a lot of lines<br>
+    and they are displayed.
+</p>
+<!-- strong -->
+<p>
+    No matter how much the dog barks: <strong>don't feed him chocolate</strong>.
+</p>
+<!-- bold -->
+<p>
+    The primary colors are <b>red</b>, <b>yellow</b> and <b>blue</b>.
+</p>
+<!-- Emphasis tags can be used to add emphasis to text. -->
+<p>
+    Wake up <em>now</em>!
+</p>
+<!-- Italics tags can be used to offset a range of text. -->
+<p>
+    The term <i>HTML</i> stands for HyperText Markup Language.
+</p>
+<!-- By default both tags will have the same visual effect in the web browser. 
+    The only difference is the meaning. Emphasis tags stress the text contained in them. 
+    Italics represent off-set text and should be used for technical terms, titles, 
+    a thought or a phrase from another language    -->
+<!-- mark -->
+<p></p><mark> special interest </mark> to the viewer.</p>
+<!-- span -->
+<p>CSS is used to design the <span class="simple-highlight"> webpage</span>, describe how elements should be rendered on screen or on other media.</p>
+<style>
+    .simple-highlight {
+        color: white;
+        background-color: brown;
+        padding: 0.1em 0.2em;
+    }
+</style>
 
+<br>
+<h2>---------------------`list`-----------------------------</h2>
+<ul>
+    <li>Tea</li>
+    <li>Sugar</li>
+    <li>Milk</li>
+</ul>
+<!-- Lists can also be ordered using the <ol> tag -->
+<ol>
+    <li>Rocky</li>
+    <li>Rocky II</li>
+    <li>Rocky III</li>
+</ol>
+
+<br>
+<h2>---------------------`table`-----------------------------</h2>
+<table>
+    <tr>
+        <th>item</th>
+        <th>price</th>
+    </tr>
+    <tr>
+        <td>coffee</td>
+        <td>$1.983</td>
+    </tr>
+    <tr>
+        <td>cookie</td>
+        <td>$1.343</td>
+    </tr>
+</table>
+<style>
+    table {
+        border: 2px solid #DDD;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #DDD;
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #DDD;
+    }
+    tr:hover {
+        border-bottom: 1px solid #ddd;
+        background-color: #D6EEEE;
+    }
+</style>
+
+<br>
+<h2>---------------------`div(with style)`-----------------------------</h2>
+<style>
+    .my_div_example1 {
+        border: 1px solid black;
+        padding: 2px;
+    }
+</style>
+<div>
+    <div class="my_div_example1">
+        <p>This is a paragraph inside stylized divs</p>
+    </div>
+</div>
+
+<br>
+<h2>---------------------`link`-----------------------------</h2>
 <a href="https://www.udacity.com">Udacity</a>
 
-<h2>Input</h2>
-<form action="" method=""></form>
 
-<input type="text">
-<br><br>
-<input type="date">
+<br>
+<h2>---------------------`img`-----------------------------</h2>
+<img src="./resources/img/html_example_img.jpeg" alt="a html img">
+<img src="./resources/img/html_example_img.jpeg" alt="a html img" width="100px" height="100px">
+<br></br>
+<!-- auto fit -->
+<div class='my_img_class_autofit'>
+    <img src="./resources/img/html_example_img.jpeg" alt="a html img">
+</div>
+<style>
+    .my_img_class_autofit {
+        width: 100px;
+        height: 60px;
+        object-fit: contain;
+    }
+</style>
 
-<input type="checkbox"> some item
+<br>
+<h2>---------------------`Input/form`-----------------------------</h2>
+<p><mark>Click https://www.w3schools.com/html/html_form_input_types.asp to see all INPUT TYPES!</mark></p>
+<div class="register-form">
+    <form action="/registration" method="POST"></form>
 
-<input type="radio"> some radio item
+        <label for="name">Name: </label><input type="text" id="name">
 
-<br><br>
-<label for="name">What is your name?</label> <input type="text" id="name"> <!-- for= and id= are both "name" -->
-<label for="age">How old are you?</label> <input type="number" id="age"> <!-- for= and id= are both "age" -->
+        <label for="age">Age</label> <input type="number" id="age"> <!-- for= and id= are both "age" -->
 
+        <label>Date: </label><input type="date">
 
-<h2>Button</h2>
+        <label>Password: </label><input type="password">
+
+        <label>Select one:</label>
+        <input type="radio" name="sex" id="male" />
+        <!-- Use the same name attribute "sex" for the two radio options to make sure only one of them would be selected! -->
+        <label for="male">Male</label>
+        <!-- The reason to use "for=" in label: you simply click on the word Male or the 
+            radio button in order for it to get selected. Without this, you have a much 
+            smaller target to click... -->
+        <input type="radio" name="sex" id="female" />
+        <label for="female">Female</label>
+
+        <br></br>
+        <label>Select N:</label>
+        <input type="checkbox" id="Mon" />
+        <label for="Mon">Monday</label>
+        <input type="checkbox" id="Tue" />
+        <label for="Tue">Tuesday</label>
+        <input type="checkbox" id="Wed" />
+        <label for="Wed">Wednesday</label>
+
+        <br></br>
+        <label for="country">Country: </label>
+        <select id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+        </select>
+        
+        <label for="feedback">Feedback: </label><br>
+        <textarea name="multiline" rows="5"></textarea>
+
+        <br></br>
+        <input type="submit" />
+    </form>
+</div>
+<style>
+    .register-form 
+    input[type=text],
+    input[type=number], 
+    input[type=date],
+    input[type=password],
+    select, textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    .register-form {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    </style>
+<br>
+<h2>---------------------`Button`-----------------------------</h2>
 <button>I am just a button.</button>
 <button type="submit">I am a submit button!</button>
 <button type="reset">I am a reset button!</button>
