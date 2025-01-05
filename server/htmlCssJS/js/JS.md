@@ -22,3 +22,14 @@ in html?
     further slows down! Note, for the second and third time of loading this
     page, this JS is very likely to have been cached. But for the first time
     this indeed will slow down the loading.
+
+
+## JS build tools
+
+___Webpack___
+
+A module bundler for JS.
+
+___Babel___
+
+A JS compiler
