@@ -1,5 +1,7 @@
 # Java Script
 
+## Intro
+
 1. JS is both an Object Oriented language and an Event Oriented language.
     - event example: click, movement, typing ...
 
@@ -11,7 +13,7 @@ in a php file that executes a PHP function.
 3. Dom code is executed from top to bottom.
     - So if your JS code is manipulating DOM,
     put your JS code __in the end__ of the HTML. Or there is a programming
-    way to solve this: <script>window.onload = function {JS code}</script>
+    way to solve this: `<script>window.onload = function {JS code}</script>`
     - Also DOM is using __blocking calls__ to render the page.
     So be mindful when you embed calls, it could slow down the loading of the
     whole page, if there were something wrong with the code.
@@ -33,3 +35,9 @@ A module bundler for JS.
 ___Babel___
 
 A JS compiler
+
+___Web Assembly___
+
+A binary instruction format that runs in your browser
+
+## JS syntax
