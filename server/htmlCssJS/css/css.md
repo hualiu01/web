@@ -1,5 +1,6 @@
 
 - [Declaration block](#declaration-block)
+- [CSS layout types](#css-layout-types)
 - [CSS selector types](#css-selector-types)
   - [basic - Element Selectors (h1, p, ...)](#basic---element-selectors-h1-p-)
   - [basic - ID Selectors (id="" ; #)](#basic---id-selectors-id--)
@@ -15,6 +16,7 @@
   - [Font](#font)
     - [property](#property)
     - [Font - `text-decoration` attr](#font---text-decoration-attr)
+    - [FlexBox](#flexbox)
 
 
 # Declaration block
@@ -27,6 +29,9 @@ When you create a CSS rule, the part inside the curly brackets is called the: __
 </head>
 ```
 
+# CSS layout types
+
+There are two types of CSS layouts to design websites: fluid and fixed.
 
 # CSS selector types
 
@@ -210,3 +215,6 @@ text-decoration-thickness: 5px;
 __The `text-decoration-style` property requires the decoration line to be defined.__ 
 
 ___[Some common font families including math and emoji](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#some_common_font_families)___
+
+
+### FlexBox

@@ -1,4 +1,4 @@
-# Hypertext Markup Language(HTML_ Background 
+# Hypertext Markup Language (HTML)
 
 HTML stands for Hypertext Markup Language, which can be thought of as “the language of the Internet.” It is a markup language that was originally designed for sharing scientific documents.
 
@@ -7,41 +7,39 @@ HTML has been in continuous evolution since it was introduced to the Internet in
 ___HTML Elements___ are the building blocks of an HTML page.
 
 
-## The Objective of HTML5
- The HTML5 specification 
- - defines a single language called HTML5 that can be written in HTML or XML syntax.
- - improves the markup for documents. 
- - includes markup and APIs for idioms, such as web storage, video, and audio content. 
 
+## HTML5
+
+HTML5 is defined in a way that it is compatible with earlier versions in the way browsers handle deployed content. __It separates conformance requirements for user agents and authors__. In other words, how browsers treat HTML5 code and how page authors treat HTML5 code is different. For user agents, HTML5 is defined in a way that supports elements and attributes of the earlier specifications. For authors, several elements and attributes have been removed in order to simplify the language. 
 
 When speaking about about creating web pages, developers may use the terms HTML and HTML5 interchangeably.
 
-# Get started
-```
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>My First HTML Document</title>
-        <scripts></scripts>
-        <style></style>
-        <link></link>
-        <meta></meta>
-        <base></base>
-    </head>
-    <body>I successfully created my first document</body>
-</html>
-```
-- The `<!DOCTYPE>` declaration is not an HTML tag; it is an instruction to the web browser about what version of HTML the page is written in. Although this declaration is not required, it should be the first line of the HTML code if the developer decides to include it. 
-- The `<html>` tag is the root element of this tree.
-  - The `<link>` tag is the "style sheet links"
-  - The `<meta>` tag is meta information. example: "Charset=UTF-8"
-  - The `<base>` tag is browser support information and other initialization functions
+HTML5 can be written in HTML or XML. The syntax of html5 are compatible with html4 and xhtml1.
 
-## HTML DOM tree
+### New Features in HTML5
 
-HTML user agents, commonly known as browsers, parse the markup, turning it into a DOM (Document Object Model) tree. A DOM tree is an __in-memory representation of a document__. DOM trees contain nodes, which define the type of document and its structure, such as headers and paragraphs, text nodes, and comment nodes.
+HTML5 offers new and refined APIs for video and audio elements, offline web apps and drag and drop:
+- canvas, audio and videl
+
+HTML5 elements enable you to define web page structure and content with _Structural Elements_:
+- sections, article, header, footer, figure, and figcaption
+
+Input elements can automatically be validated by the browser
+- tel, email, datetime, number, range, and color
+
+___Web Storage APIs___ can store data in the the browser
+- localStorage, sessionStorage
+
+
+### Performance Improvements in HTML5
+- imporved search indexing with meta tags
+- better page load times
+- enhanced user experience
+
 
 ## XML
+
+An "eXtensible Markup Language" Designed to store and transport data allowing users to define their own markup languages, primarily to display documents on the web.
 
 ![](./resources/img/xml_example.png)
 
@@ -49,7 +47,95 @@ Extensible Markup Language (XML) documents look similar to HTML documents, excep
 
 
 ## XHTML VS HTML
- Both HTML and XHTML use the same semantic or tags. However, XHTML tags all need to be in __lowercase__, while the case used does not matter in HTML. In addition, XHTML __must be well-formed. Every element must have an end tag__. All attributes must have __a value and double or single quotation marks__ must surround __all attribute values__. __If an XML parser encounters a situation where the syntax is not well-formed, it stops processing__. In HTML, different case, unmatched quotation marks, and non-terminated and uncontained elements are allowed and commonplace. In this regard, __HTML syntax is less rigorous than XHTML syntax__.
+In terms of syntax, html5 is compatible with html4 and xhtml1 documents.
+
+Both HTML and XHTML use the same semantic or tags. But XHTML is more strict than HTML:
+ - XHTML tags all need to be in __lowercase__, while the case used does not matter in HTML. 
+ - In addition, XHTML __must be well-formed. Every element must have an end tag__. All attributes must have __a value and double or single quotation marks__ must surround __all attribute values__. 
+ 
+ __Q: if an XHTML parser encounters a situation where the syntax is not well-formed, will it stop processing? what about html?__
+
+ - An XHTML parser will stop processing if it encounters a syntax error. XHTML is based on XML, which is stricter than HTML. Since XML parsers enforce well-formedness rules, encountering an error (such as an unclosed tag or improperly nested elements) will cause the parser to terminate and possibly report an error. 
+- However, in HTML, different case, unmatched quotation marks, and non-terminated and uncontained elements are allowed and commonplace. In this regard, __HTML syntax is less rigorous than XHTML syntax__.
+
+__Q: how to specify XHTML from server side?__
+- If you want the browser to parse the document as XHTML, the server should send `Content-Type: application/xhtml+xml`
+- And the document should have this format:
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en>
+
+<head>
+    <title>XHTML Example</title>
+</head>
+<body>
+    <p>This is an XHTML document.</p>
+</body>
+</html>
+```
+- The `<?xml version="1.0" encoding="UTF-8"?>` declaration is optional but recommended.
+- `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">` => This is a DOCTYPE declaration for XHTML 1.0 Strict, which tells the browser and validators what type of document they are dealing with.
+  - `<!DOCTYPE html>` → Declares that this is an HTML/XHTML document.
+  - `PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"` → This means:
+    - `"-//W3C//DTD"` → This document follows a W3C-defined __Document Type Definition (DTD)__.
+    - `"XHTML 1.0 Strict"` → The document conforms to ___XHTML 1.0 Strict rules___.
+      - XHTML 1.0 Strict is a stricter, XML-based version of HTML that: 
+        ✅ Enforces proper element nesting and closing.
+        ✅ Requires lowercase tag names.
+        ✅ __Does not allow presentational attributes like <font> or inline style in elements (CSS must be used instead)__.
+    - `"EN"` → The language of the DTD is English.
+- The `xmlns="http://www.w3.org/1999/xhtml"` attribute is required in `<html>`.
+# Get started with HTML
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        see ./htmlCheetSheet.html
+    </head>
+    <body>
+        see ./htmlCheetSheet.html
+    </body>
+</html>
+```
+- The `<!DOCTYPE>` declaration is not an HTML tag; it is an instruction to the web browser about what version of HTML the page is written in. Although this declaration is not required, it should be the first line of the HTML code if the developer decides to include it. __The `<!DOCTYPE html>` is used for HTML5.__
+- The `<html>` tag is the root element of this tree.
+
+## HTML DOM tree
+
+HTML user agents, commonly known as browsers, parse the markup, turning it into a DOM (Document Object Model) tree. A DOM tree is an __in-memory representation of a document__. DOM trees contain ___nodes, which define the type of document and its structure, such as headers and paragraphs, text nodes, and comment nodes__.=> Nodes are the building blocks of HTML
+
+![dom](./resources/img/dom_accessor.png)
+
+- The `document.images` property returns a live HTMLCollection of all the `<img>` elements in the document. This collection is automatically updated when images are added or removed from the document.
+
+
+![dom](./resources/img/dom_methods.png)
+
+
+## HTML Scripting
+
+__Enabling of scripting__
+
+Scripting is enabled in a browser context when the following conditions apply:
+- the browser supports scripting
+- the user has scripting enabled
+- the browser context does not have the sandboxed browsing content flag set, meaning that the web page or iframe is not running in a sandboxed environment 
+  - example of setting the sandbox restriction on page level `<meta http-equiv="Content-Type" content="text/html-sandboxed; ...">`
+  - example of setting the sandbox restriction as an attribute for embedded objects, such as `iframe`: `<iframe src="example.html" sandbox></iframe>`.The sandbox attribute can also take a list of restrictions to apply:  `<iframe src="example.html" sandbox="allow-scripts allow-same-origin"></iframe>`. This example allows scripts to run and allows the content to be treated as being from the same origin.
+
+### sandbox browsing in browser context & iframe
+
+A sandboxed environment restricts certain actions and capabilities of the content to enhance security. __For example, it can prevent scripts from running, disallow form submissions, or block access to certain APIs__.
+
+When the sandboxed browsing context flag is not set, the content has more freedom and fewer restrictions. This can be useful for functionality but may pose security risks if the content is not trusted. Specifically, __running a page that contains an embedded object without the sandbox attribute grants the embedded object the same permissions as the rest of your page__. This implicitly gives a third-party vendors permission to run scripts with the same permissions that you have for that page, __which is one way that you can inadvertently allow advertisements to occur in your application__. So, to prevent granting implicit permissions to embedded objects, use the sandbox attribute on any tag that contains an embedded object. 
+
+## HTML5 Browser support
+
+- we can use https://caniuse.com/ to check browser support for capabilities and events for various browsers like Chrome, firefox ...
+
+example:
+![](./resources/img/browser_check_date.png)
 
 # References
 
