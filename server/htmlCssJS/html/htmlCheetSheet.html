@@ -84,14 +84,37 @@
         <h1>The Benefits of Learning HTML</h1>
         <p>By Jane Doe, Published on October 10, 2023</p>
     </header>
-    <section>
-        <p>HTML is the standard markup language for creating web pages. It is easy to learn and widely used in web development. Understanding HTML is essential for anyone looking to build websites or web applications.</p>
-    </section>
+    <div>
+        <section id="public">
+            <h1>Public demonstrations</h1>
+            <p>...more...</p>                
+        </section>
+        <section id="control">
+            <h1>Crowd control</h1>
+            <p>...more...</p>                
+        </section>            
+    </div>
     <footer>
         <p>Tags: HTML, Web Development, Programming</p>
         <p>Published on: <time datetime="2025-02-09">February 9, 2025</time></p>
     </footer>
 </article>
+
+<br>
+<h2>---------------------`aside`-----------------------------</h2>
+<p>This is a paragraph of text that casually mentions a concept and continues explaining the main point</p>
+<aside>
+    <h4>Concept Definition</h4>
+    <p>This goes over the concept mentioned in the paragraph to provide readers with further explanation if needed. However, it does not detract from the main content.</p>
+</aside>
+
+<style>
+    aside {
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin: 10px 0;
+    }
+</style>
 
 <br>
 <h2>---------------------`list`-----------------------------</h2>
@@ -147,7 +170,7 @@
 <h2>---------------------`div(with style)`-----------------------------</h2>
 <style>
     .my_div_example1 {
-        border: 1px solid black;
+        border: 1px solid rgb(231, 88, 27);
         padding: 2px;
     }
 </style>
@@ -169,7 +192,7 @@
 <br><a href="#table-doc">Link to section using id `#table-doc`</a>
 
 <br>
-<h2>---------------------`img`-----------------------------</h2>
+<h2>---------------------`img and figure`-----------------------------</h2>
 <!-- The <img> tag also requires the ‘alt’ attribute, which defines alternative text to be displayed in the event the image cannot be loaded and when a screen reader is used. -->
 <img src="./resources/img/html_example_img.jpeg" alt="a html img">
 <img src="./resources/img/html_example_img.jpeg" alt="a html img" width="100px" height="100px">
@@ -186,53 +209,133 @@
     }
 </style>
 
+<h2> a figure example</h2>
+<figure>
+    <img src="./resources/img/html_example_img.jpeg" width="200" height="100"/>
+    <figcaption>example figure caption</figcaption>
+</figure>
+
+<br>
+<h2>---------------------`audio, video, and canvas`-----------------------------</h2>
+<audio controls>
+    <source src="./resources/audio/sample-3s.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+<br>
+
+<h3>Use video element to embed local videos</h3>
+<video width="320" height="240" controls>
+    <source src="./resources/video/1mb-example-video-file.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<h3>To embed a YouTube video, use an iframe</h3>
+<iframe width="500" height="350" src="https://www.youtube.com/embed/Ki_0iES2cGI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<aside>
+NOTE: use `https://www.youtube.com/embed/` instead of `https://www.youtube.com/watch?v=` in the src attribute. Otherwise, will get a youtube error.
+
+</aside>
+
+<canvas id="linearGradientCanvas" width="200" height="200">
+    Your browser does not support the canvas tag.
+</canvas>
+<script>
+    var canvas = document.getElementById('linearGradientCanvas');
+    var context = canvas.getContext('2d');
+
+    // Create a linear gradient
+    var linearGradient = context.createLinearGradient(0, 0, 200, 0);
+    linearGradient.addColorStop(0, 'red');
+    linearGradient.addColorStop(1, 'blue');
+
+    // Use the gradient to fill a rectangle
+    context.fillStyle = linearGradient;
+    context.fillRect(0, 0, 200, 200);
+</script>
+
+<br>
+<h2>---------------------`embed`-----------------------------</h2>
+<embed src="./resources/pdf/BigQuery Technical Whitepaper - Google.pdf" width="500" height="375" type="application/pdf">
 <br>
 <h2>---------------------`Input/form`-----------------------------</h2>
 <p><mark>Click https://www.w3schools.com/html/html_form_input_types.asp to see all INPUT TYPES!</mark></p>
 <div class="register-form">
     <form action="/registration" method="POST"></form>
+        <fieldset name="personal">
+            <legend>Personal Information</legend>
+            <label for="name">Name: </label>
+            <input type="text" id="name" placeholder="enter your name, this is a required field" required>
 
-        <label for="name">Name: </label>
-        <input type="text" id="name">
+            <label for="age">Age</label> 
+            <input type="number" id="age"> <!-- NOTE: `for=` and `id=` must both have value "age" -->
+            <label>birthday: </label><input type="date">
+            <div>
+                <label>Personality Color: </label><input type="color" id="personality-color">
+            </div>
+        </fieldset>
 
-        <label for="age">Age</label> 
-        <input type="number" id="age"> <!-- NOTE: `for=` and `id=` must both have value "age" -->
+        <label for="searchbox">SearchBoxExample:</label>
+        <input type="search" id="searchbox">
 
-        <label>Date: </label><input type="date">
+        <label>Local time:</label><input type="datetime-local">
 
-        <!-- Email Field -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <fieldset name="contact information">
+            <legend>Contact Information</legend>
+            <!-- Email Field -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+
+            <!-- American Cell Phone Number Field -->
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="(xxx)-xxx-xxxx" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+        </fieldset>
+
+        <label>mood:</label><input type="range" min="1" max="10">
+        <!--additional JS is needed to display the value of the slider-->
 
         <label>Password: </label><input type="password">
 
-        <label>Select one:</label>
-        <input type="radio" name="sex" id="male" />
-        <!-- Use the same name attribute "sex" for the two radio options to make sure only one of them would be selected! -->
-        <label for="male">Male</label>
-        <!-- The reason to use "for=" in label: you simply click on the word Male or the 
-            radio button in order for it to get selected. Without this, you have a much 
-            smaller target to click... -->
-        <input type="radio" name="sex" id="female" />
-        <label for="female">Female</label>
+        <fieldset name="selections">
+            <legend>Selections</legend>
+            <label>Select one:</label>
+            <input type="radio" name="sex" id="male" />
+            <!-- Use the same name attribute "sex" for the two radio options to make sure only one of them would be selected! -->
+            <label for="male">Male</label>
+            <!-- The reason to use "for=" in label: you simply click on the word Male or the 
+                radio button in order for it to get selected. Without this, you have a much 
+                smaller target to click... -->
+            <input type="radio" name="sex" id="female" />
+            <label for="female">Female</label>
 
-        <br></br>
-        <label>Select N:</label>
-        <input type="checkbox" id="Mon" />
-        <label for="Mon">Monday</label>
-        <input type="checkbox" id="Tue" />
-        <label for="Tue">Tuesday</label>
-        <input type="checkbox" id="Wed" />
-        <label for="Wed">Wednesday</label>
+            <br></br>
+            <label>Select N:</label>
+            <input type="checkbox" id="Mon" />
+            <label for="Mon">Monday</label>
+            <input type="checkbox" id="Tue" />
+            <label for="Tue">Tuesday</label>
+            <input type="checkbox" id="Wed" />
+            <label for="Wed">Wednesday</label>
 
-        <br></br>
-        <label for="country">Country: </label>
-        <select id="country" name="country">
-            <option value="australia">Australia</option>
-            <option value="canada">Canada</option>
-            <option value="usa">USA</option>
-        </select>
+            <br></br>
+            <label for="country">Country: </label>
+            <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+            </select>
+
+            <br></br>
+            <label for="browsers">Browser(can type anything not from the drop down suggestions): </label>
+            <input type="text" list="browsers">
+            <datalist id="browsers">
+                <option value="Chrome"></option>
+                <option value="Firefox"></option>
+                <option value="Safari"></option>
+                <option value="Edge"></option>
+            </datalist>  
         
+        </fieldset>
+
         <label for="feedback">Feedback: </label><br>
         <textarea name="multiline" rows="5"></textarea>
 
@@ -243,9 +346,13 @@
 <style>
     .register-form 
     input[type=text],
+    input[type=search],
     input[type=number], 
     input[type=date],
+    input[type=datetime-local],
+    input[type=range],
     input[type=email],
+    input[type=tel],
     input[type=password],
     select, textarea {
       width: 100%;

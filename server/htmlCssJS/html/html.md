@@ -6,6 +6,26 @@ HTML has been in continuous evolution since it was introduced to the Internet in
 
 ___HTML Elements___ are the building blocks of an HTML page.
 
+- [Hypertext Markup Language (HTML)](#hypertext-markup-language-html)
+  - [HTML5](#html5)
+    - [New Features in HTML5](#new-features-in-html5)
+    - [Performance Improvements in HTML5](#performance-improvements-in-html5)
+    - [HTML5 specific Tags \& Structural Elements](#html5-specific-tags--structural-elements)
+      - [aside and figure](#aside-and-figure)
+      - [header and footer](#header-and-footer)
+      - [nav](#nav)
+      - [article and seciton](#article-and-seciton)
+  - [XML](#xml)
+    - [XHTML VS HTML](#xhtml-vs-html)
+- [Get started with HTML](#get-started-with-html)
+  - [HTML DOM tree](#html-dom-tree)
+  - [HTML Scripting](#html-scripting)
+    - [Enabling of scripting](#enabling-of-scripting)
+    - [sandbox browsing in browser context \& iframe](#sandbox-browsing-in-browser-context--iframe)
+  - [HTML5 Browser support](#html5-browser-support)
+    - [HTML Browser support validation fallback](#html-browser-support-validation-fallback)
+- [References](#references)
+
 
 
 ## HTML5
@@ -18,24 +38,68 @@ HTML5 can be written in HTML or XML. The syntax of html5 are compatible with htm
 
 ### New Features in HTML5
 
-HTML5 offers new and refined APIs for video and audio elements, offline web apps and drag and drop:
-- canvas, audio and videl
+- HTML5 offers new and refined APIs for __video and audio__ elements, __offline web apps__ and __drag and drop__:
+  - canvas, audio and video
 
-HTML5 elements enable you to define web page structure and content with _Structural Elements_:
-- sections, article, header, footer, figure, and figcaption
+- HTML5 elements enable you to define web page structure and content with __Structural Elements__:
+  - sections, article, header, footer, figure, and figcaption
 
-Input elements can automatically be validated by the browser
-- tel, email, datetime, number, range, and color
+- __Input elements can automatically be validated by the browser__
+  - tel, email, datetime, number, range, and color
 
-___Web Storage APIs___ can store data in the the browser
-- localStorage, sessionStorage
+- ___Web Storage APIs___ can store data in the the browser
+  - localStorage, sessionStorage
 
 
 ### Performance Improvements in HTML5
-- imporved search indexing with meta tags
-- better page load times
+- imporved search indexing with __meta tags__
+- better __page load times__
 - enhanced user experience
 
+### HTML5 specific Tags & Structural Elements
+
+![html specific tags 1 of 2](./resources/img/html5%20specific%20tags%201%20of%202.png)
+![html specific tags 2 of 2](./resources/img/html5%20specific%20tags%202%20of%202.png)
+
+#### aside and figure
+- `<aside>`
+  - provides additional information that is related to the main discussion
+  - extracts and displays further content or navigates to additional resources __without detracting from the main discussion, and is often placed as a sidebar in a document.__
+  - Used for __cautions, notes, or to wrap navigational links__
+  - While the `<aside>` element itself is not displayed different from the rest of the content, it is useful for understanding your code and for styling purposes.
+- `<figure>`
+  - a self contained element referred to from the main content
+  - emgbeds graphics, photographs, or code segments
+  - __can be moved to an appendix__ without affecting the flow of the document
+  - `<figurecaption>` defines the __caption__ for the contents of the `<figure>` element 
+
+#### header and footer
+- The `<header>` element is a container used to define the introductory/header information of a page. It can be used for a __navigational bar, or to wrap a table of contents__.
+- An HTML document __can contain more than one `<header>` elements__, however, __they cannot be placed within `<address>`, `<footer>`, or other `<header>` elements__.
+- `<footer>` element defines the area at the bottom of the page (known as a footer). This often contains copyright information, contact information, and contact links.
+
+
+
+#### nav
+- example
+```html
+<body>
+ <nav>
+   <div class="menu">
+     <a href="#">Home</a>
+     <a href="about.html">About</a>
+     <a href="register.html">Register</a>
+     <a href="#">Sign in</a>
+   </div>
+ </nav>
+ <h1>Page Heading</h1>
+</body>  
+```
+#### article and seciton
+- Q: difference between `<section>` and `<div>`
+  - `<section>` element is grouped in a semantically meaningful way, that is, there is a reason, other than for styling purposes for putting the content together.
+  - Content within a `<section>` tag has a theme, which is usually indicated by a heading tag (e.g. `<h1>`) used immediately after the opening `<section>` tag.
+- An `<article>` element is even more specific than a `<section>`. It is used to group together semantically related, self-contained content which can be meaningful on its own. Similar to the `<section>` element, __articles usually have headings immediately after their opening tag to indicate what the article is about__.
 
 ## XML
 
@@ -46,7 +110,7 @@ An "eXtensible Markup Language" Designed to store and transport data allowing us
 Extensible Markup Language (XML) documents look similar to HTML documents, except __they have an XML tag on the first line__. In addition, with XML documents, the __Content-type must be specified as an XML media type such as application or xml__. When a document is transmitted with an XML content type, it is treated as an XML document by a web browser and __an XML processor parses the document__. 
 
 
-## XHTML VS HTML
+### XHTML VS HTML
 In terms of syntax, html5 is compatible with html4 and xhtml1 documents.
 
 Both HTML and XHTML use the same semantic or tags. But XHTML is more strict than HTML:
@@ -115,12 +179,12 @@ HTML user agents, commonly known as browsers, parse the markup, turning it into 
 
 ## HTML Scripting
 
-__Enabling of scripting__
+### Enabling of scripting
 
 Scripting is enabled in a browser context when the following conditions apply:
-- the browser supports scripting
-- the user has scripting enabled
-- the browser context does not have the sandboxed browsing content flag set, meaning that the web page or iframe is not running in a sandboxed environment 
+- the __browser supports scripting__
+- the user has __scripting enabled__
+- the __browser context does not have the sandboxed browsing content flag set__, meaning that __the web page or iframe is not running in a sandboxed environment__ 
   - example of setting the sandbox restriction on page level `<meta http-equiv="Content-Type" content="text/html-sandboxed; ...">`
   - example of setting the sandbox restriction as an attribute for embedded objects, such as `iframe`: `<iframe src="example.html" sandbox></iframe>`.The sandbox attribute can also take a list of restrictions to apply:  `<iframe src="example.html" sandbox="allow-scripts allow-same-origin"></iframe>`. This example allows scripts to run and allows the content to be treated as being from the same origin.
 
@@ -136,6 +200,11 @@ When the sandboxed browsing context flag is not set, the content has more freedo
 
 example:
 ![](./resources/img/browser_check_date.png)
+
+### HTML Browser support validation fallback
+
+![](./resources/img/browser%20html5%20support%20validation%20fallback.png)
+
 
 # References
 
