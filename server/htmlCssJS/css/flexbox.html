@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Examples</title>
+    <style>
+        .container {
+            display: flex;
+            border: 2px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .item {
+            background-color: lightblue;
+            padding: 20px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .item:hover {
+            color: white;
+            background-color: orange;
+        }
+
+        /* Example 1: Row Direction */
+        .row {
+            flex-direction: row;
+        }
+
+        /* Example 2: Column Direction */
+        .column {
+            flex-direction: column;
+        }
+
+        /* Example 3: Justify Content */
+        .justify-center {
+            justify-content: center;
+        }
+
+        /* Example 4: Align Items */
+        .align-center {
+            align-items: center;
+            height: 200px; /* Required for alignment */
+        }
+    </style>
+</head>
+<body>
+    <h1>Flexbox Examples</h1>
+
+    <h2>Example 1: Row Direction (Default)</h2>
+    <div class="container row">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+
+    <h2>Example 2: Column Direction</h2>
+    <div class="container column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+
+    <h2>Example 3: Justify Content (Center)</h2>
+    <div class="container row justify-center">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+
+    <h2>Example 4: Align Items (Center)</h2>
+    <div class="container row align-center">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+</body>
+</html>

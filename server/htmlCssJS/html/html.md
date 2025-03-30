@@ -68,6 +68,7 @@ HTML5 can be written in HTML or XML. The syntax of html5 are compatible with htm
   - Used for __cautions, notes, or to wrap navigational links__
   - While the `<aside>` element itself is not displayed different from the rest of the content, it is useful for understanding your code and for styling purposes.
 - `<figure>`
+  - Use <img> when you just need to display an image without any additional context or caption. Use <figure> when you want to provide a caption or group the image with related content for better semantic meaning.
   - a self contained element referred to from the main content
   - emgbeds graphics, photographs, or code segments
   - __can be moved to an appendix__ without affecting the flow of the document

@@ -1,6 +1,14 @@
-
-- [Declaration block](#declaration-block)
-- [CSS layout types](#css-layout-types)
+- [Get Started](#get-started)
+  - [Apply CSS to HTML](#apply-css-to-html)
+    - [1. Highest Priority - inline css](#1-highest-priority---inline-css)
+    - [2. Secondary Priority - Internal css](#2-secondary-priority---internal-css)
+    - [3. Lowest Priority - External css](#3-lowest-priority---external-css)
+    - [priority](#priority)
+  - [Base Styles](#base-styles)
+  - [CSS layout types](#css-layout-types)
+- [CSS Frameworks](#css-frameworks)
+  - [utility-first framework](#utility-first-framework)
+  - [component framework](#component-framework)
 - [CSS selector types](#css-selector-types)
   - [basic - Element Selectors (h1, p, ...)](#basic---element-selectors-h1-p-)
   - [basic - ID Selectors (id="" ; #)](#basic---id-selectors-id--)
@@ -9,29 +17,171 @@
   - [intermediate - Descendant Selector](#intermediate---descendant-selector)
   - [intermediate - Child Selector (\>)](#intermediate---child-selector-)
   - [advanced - Pseudo-Class Selector](#advanced---pseudo-class-selector)
-- [Text and Color in CSS](#text-and-color-in-css)
+- [Advanced CSS Properties](#advanced-css-properties)
+  - [Common to all elements](#common-to-all-elements)
   - [Color](#color)
     - [Color Formats](#color-formats)
     - [Predefined colors in morden browsers](#predefined-colors-in-morden-browsers)
   - [Font](#font)
     - [property](#property)
     - [Font - `text-decoration` attr](#font---text-decoration-attr)
-    - [FlexBox](#flexbox)
 
 
-# Declaration block
+# Get Started 
+## Apply CSS to HTML
+### 1. Highest Priority - inline css
+- used for single html element
+- html doc get mesay quickly
+- inset the `style` attr inside any html element
+  - example 
+  ```html
+  <p style="color:red;">a red paragraph.</p>
+  <h1 style="font-family: Cursive; font-size:70px; color:rgb(139,0,0)">Solar System</h1>
+  <body style="background-color:wheat">
+  ```
+  a full example of a complete html page
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Inline CSS Example</title>
+  </head>
+  <body>
+      <h1 style="color: blue; text-align: center;">This is a Heading</h1>
+      <p style="font-size: 18px; color: green;">This paragraph is styled using inline CSS.</p>
+  </body>
+  </html>
+  ```
 
-When you create a CSS rule, the part inside the curly brackets is called the: ___Declaration block___
+### 2. Secondary Priority - Internal css
+- used for a single page
+- increases load time
+- Add a `<style>` tag to your html doc
+  - example 
+  ```html
+  <head>
+    <title>Solar System</title>
+    <style>
+        table,th,td {
+            border: 2px solid black;
+        }
+        body {
+          background-color: yellow;
+        }
+    </style>
+  </head>
+  ```
+  
+### 3. Lowest Priority - External css 
+- used to style an entire website
+- can be linked to from other pages
+- add a `link` tag to the `<head>` tag
 
 ```html
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 ```
 
-# CSS layout types
+### priority
 
-There are two types of CSS layouts to design websites: fluid and fixed.
+highest | inline > internal > external | lowest priority
+
+## Base Styles
+
+an example of base style
+```
+Body
+{
+  background-color: #EEEEEE; // black
+  color: #000000; 
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 100%; 
+  font-family: sans-serif;
+}
+```
+- `font-size: 100%;` sets the font size to the browser default font size 
+
+__See [this section here](#advanced-css-properties) for advanced css properites.__
+
+
+__common basic guideline__
+- color: RBG hex-values. [see more at section Color](#color)
+- size: pixels (`5px`), cm, or a percentage
+- text: aligned left, right, or center
+- Floats: left or right
+  -  the float property is used to position an element to the left or right within its containing element, allowing text and inline elements to wrap around it. Modern CSS layout techniques like Flexbox and CSS Grid are often preferred for creating responsive and flexible layouts.
+-  vertical alignments must be top, middle, or bottom
+
+## CSS layout types
+
+One of the most important decisions you must make when you are determining the design of your website is whether to use a fluid or a fixed layout: 
+- __A fluid layout__: is a layout in which the height and width of elements is flexible and can expand or contract based on the browser window, the operating system, and other user preferences. __You specify these elements mostly by using percentages and ems__. 
+- __A fixed layout__: is a layout where you specify the height and width of elements, and those values remain the same regardless of which operating system or browser you use to access the website. __You specify these elements mostly by using pixels When determining the layout__, 
+
+consider also the pros and cons for fluid and fixed layouts The type of layout you choose depends on the type and amount of content and the target audience of the website.
+
+# CSS Frameworks
+
+![types of css frameworks](./resources/types%20-%20css%20frameworks.png)
+
+## utility-first framework
+
+an example of utility-first framework
+
+```css
+text-align: center; // css property
+text-center // utility class
+```
+
+NOTE: using utility frameworks often involves adding several classes to HTML markup. Thus, may increase html download size and slows down web pages.
+
+__tools__
+
+1. ___Tailwind CSS___
+  example
+    - vanila css
+      ```css
+      a {
+        color: red;
+        text-decoration: underline;
+      }
+      a: hover {
+        color: rgb(185, 28, 28)
+      }
+      ```
+    - tailwind css
+      ```html
+      <a href="..." class="underlinetext-red-500 hover:text-red-700"> Dangerouse Link</a>
+      ```
+
+## component framework
+
+provides pre-styled components and templates. 
+But would includes overhead code from unused components.
+
+__tools__
+
+1. ___Bootstrap___
+  example
+    - vanila css
+      ```css
+      a {
+        color: red;
+        text-decoration: underline;
+      }
+      a: hover {
+        color: rgb(185, 28, 28)
+      }
+      ```
+    - bootstrap
+      ```html
+      <a href="..." class="link-danger"> Dangerouse Link</a>
+      ```
 
 # CSS selector types
 
@@ -137,7 +287,49 @@ a:hover {
 }
 ```
 
-# Text and Color in CSS
+# Advanced CSS Properties
+
+[See above for basic properties](#base-styles)
+
+## Common to all elements
+
+```css
+/* margin sets the space around an element */
+margin: 20px; /* auto, length (e.g., 20px), 
+percentage (a margin relative to the 
+containing element's width) */
+
+/* padding sets the space inside an element, 
+between its content and its border */
+padding: 10px; /* length, percentage */
+
+/* float specifies whether an element should 
+float to the left or right of its container */
+float: left; /* none, left, right */
+
+/* Defines the radius of the corners of an 
+element's border box, creating rounded corners. */
+border-radius: 10px; /* length, percentage */
+
+width: 200px; 
+height: 100px; /* auto, length, percentage */
+
+/* position specifies the type of positioning 
+method used for an element. Positioning determines 
+how an element is placed within its containing 
+block and how it interacts with other elements. */
+position: relative; /* relative sets the element's 
+position relative to its normal position. */
+/*
+static: The default positioning.
+relative: Positioned relative to its normal position. 
+absolute: Positioned relative to the nearest 
+positioned ancestor. 
+fixed: Positioned relative to the browser window. 
+sticky: Switches between relative and fixed based 
+on the scroll position.
+*/
+```
 
 ## Color
 
@@ -192,18 +384,23 @@ Since computers vary in what fonts they have installed, it is recommended to inc
 p {
   color: rgb(225, 0, 0);
   font-family: "Courier New", monospace;
+  font-weight: bold; /* normal, bold, bolder(bolder than parent element), lighter(lighter than parent element), 100-900(100 is the thinnest) */
   font-size: 12px;
+  
   text-transform: uppercase; /* uppercase,  lowercase,  capitalize  and none(default value). */
   text-decoration: underline; /* underline, strikethrough */
 }
 ```
+- ___[Some common font families including math and emoji](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#some_common_font_families)___
+
 ### Font - `text-decoration` attr
-To set color, thickness and styling. 
+To set color, thickness and styling. This property can enhance the visual emphasis of text or indicate a change in text state (like a link being visited).
 - Option 1:
 ```css
 /* css */
 text-decoration: underline red solid 5px;
 ```
+- "underline" applies an underline to text
 - Option 2:
 ```css
 /* css */
@@ -212,9 +409,6 @@ text-decoration-color: red;
 text-decoration-style: solid;   /* solid,  double,  dotted,  dashed  and  wavy */
 text-decoration-thickness: 5px;
 ```
-__The `text-decoration-style` property requires the decoration line to be defined.__ 
-
-___[Some common font families including math and emoji](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#some_common_font_families)___
+__The `text-decoration-style` property requires the decoration line to be defined.__
 
 
-### FlexBox
