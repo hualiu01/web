@@ -1,13 +1,53 @@
 # Client Side JS
 
 - [Client Side JS](#client-side-js)
+  - [Two ways to embed JS in HTML](#two-ways-to-embed-js-in-html)
+    - [`script` in `<head>` or `<body>`](#script-in-head-or-body)
+  - [`<noscript>` tag](#noscript-tag)
+  - [Trigger Script on Intrinsic Events](#trigger-script-on-intrinsic-events)
   - [Common JS APIs](#common-js-apis)
     - [DOM - get element](#dom---get-element)
     - [DOM - create element](#dom---create-element)
     - [Element updates](#element-updates)
     - [Window object Methods and Events](#window-object-methods-and-events)
     - [XMLHttpRequest](#xmlhttprequest)
+  - [Advanced JS APIs](#advanced-js-apis)
 
+## Two ways to embed JS in HTML
+
+1. use `<script> </script>` tag 
+2. use `<script src="/source/script.js"></script>`
+
+### `script` in `<head>` or `<body>`
+
+1. Scripts in `<head>`:
+   1. Scripts in the `<head>` are executed before the page content is loaded. => This can block the rendering of the page.
+2. Scripts at the End of `<body>`: => the recommended approach for most cases.
+   1. Placing the `<script>` tag just before the closing `</body>` tag ensures that the HTML content is fully loaded before the script is executed.
+3. Using the `defer` Attribute:
+   1. If you want to include the `<script>` tag in the `<head>` but still ensure it doesn't block the page rendering, you can use the `defer` attribute. Scripts with defer are executed __after the HTML document is fully parsed but before the `DOMContentLoaded` event__.
+   2. example
+   ```html
+    <head>
+        <script src="script.js" defer></script>
+    </head>
+   ```
+4. Using the `async` Attribute:
+   1. The `async` attribute allows the script to be downloaded in parallel with the HTML parsing and executed as soon as it is ready. => However, this can lead to __unpredictable execution order if multiple scripts are included__.
+   ```html
+    <head>
+        <script src="script.js" async></script>
+    </head>
+   ```
+
+## `<noscript>` tag
+
+It's used to handle situations where scripts have been disabled or a certain brower doesn't support them. And in this case, developers can put a section `<noscript>` to have the unsupported browser runs the section of code within it.
+
+
+## Trigger Script on Intrinsic Events 
+
+![trigger scripts on events](./resource/trigger_scripts_on_events.png)
 
 ## Common JS APIs
 
@@ -123,6 +163,71 @@ __element.removeAttribute(attrName)__
 __element.getAttribute(attrName)__
 - get the attribute value __if it exists__
 
+__element.value__
+The `value` property is available on certain HTML elements, primarily `form` elements, to get or set their current value.
+
+Example: Get the value of an input element
+```html
+<input type="text" id="textInput" value="Default Text">
+<script>
+    const inputValue = document.getElementById("textInput").value;
+    console.log(inputValue); // Outputs: "Default Text"
+</script>
+```
+
+Example: Get the value of a password input element
+```html
+<input type="password" id="passwordInput" value="mypassword">
+<script>
+    const passwordValue = document.getElementById("passwordInput").value;
+    console.log(passwordValue); // Outputs: "mypassword"
+</script>
+```
+
+Example: Get the value of a checkbox input element
+```html
+<input type="checkbox" id="checkbox" value="checkedValue">
+<script>
+    const checkboxValue = document.getElementById("checkbox").value;
+    console.log(checkboxValue); // Outputs: "checkedValue"
+</script>
+```
+
+Example: Get the value of a radio input element
+```html
+<input type="radio" name="gender" value="male">
+```
+
+Example: Get the value of a textarea element
+```html
+<textarea id="textArea">Default Text</textarea>
+<script>
+    const textAreaValue = document.getElementById("textArea").value;
+    console.log(textAreaValue); // Outputs: "Default Text"
+</script>
+```
+
+Example: Get the value of a dropdown element
+```html
+<select id="dropdown">
+    <option value="option1">Option 1</option>
+    <option value="option2" selected>Option 2</option>
+</select>
+<script>
+    const selectedValue = document.getElementById("dropdown").value;
+    console.log(selectedValue); // Outputs: "option2"
+</script>
+```
+
+Example: Get the value of a button element
+```html
+<input type="button" id="button" value="Click Me">
+<script>
+    const buttonValue = document.getElementById("button").value;
+    console.log(buttonValue); // Outputs: "Click Me"
+</script>
+```
+
 ### Window object Methods and Events
 
 <mark>See the <a href="./demo-window-open-onload-scrollto.html">./demo-window-open-onload-scrollto.html.html</a> for an example </mark>
@@ -142,4 +247,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
 
 <mark>See the <a href="./demo-ajax_xml_http_request.html">./demo-ajax_xml_http_request.html.html</a> for an example </mark>
 
+
+## Advanced JS APIs
+
+https://developer.mozilla.org/en-US/docs/Web/API
 
