@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest Example</title>
+</head>
+<body>
+    <h1>XMLHttpRequest Demo</h1>
+    <button id="fetchData">Fetch Data</button>
+    <div id="output" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+        <strong>Response will appear here...</strong>
+    </div>
+
+    <script>
+        document.getElementById("fetchData").addEventListener("click", function() {
+            // Create a new XMLHttpRequest object
+            var xhr = new XMLHttpRequest();
+
+            // Configure it: GET-request for a public API
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);  // "true" makes it asynchronous
+
+            // Set up a function to handle the response
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Parse and display the response
+                    var response = JSON.parse(xhr.responseText);
+                    document.getElementById("output").innerHTML = `
+                        <h3>${response.title}</h3>
+                        <p>${response.body}</p>
+                    `;
+                } else {
+                    document.getElementById("output").innerHTML = `
+                        <p style="color: red;">Error: ${xhr.status}</p>
+                    `;
+                }
+            };
+
+            // Handle network errors
+            xhr.onerror = function() {
+                document.getElementById("output").innerHTML = `
+                    <p style="color: red;">Request failed. Please try again.</p>
+                `;
+            };
+
+            // Send the request
+            xhr.send();
+        });
+    </script>
+</body>
+</html>

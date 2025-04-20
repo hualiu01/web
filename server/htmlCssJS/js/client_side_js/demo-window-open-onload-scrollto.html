@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example: window.open, window.onload, and window.scrollTo</title>
+    <style>
+        body {
+            height: 2000px; /* To enable scrolling */
+        }
+        #scrollButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: lightblue;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Window Open Example</h1>
+    <button id="openWindow">Open Google</button>
+    <button id="scrollButton">Scroll to Top</button>
+
+    <script>
+        // Example 1: window.open
+        document.getElementById("openWindow").addEventListener("click", function() {
+            // Open a new window or tab
+            window.open("https://www.google.com", "_blank", "width=800,height=600");
+        });
+
+        // Example 2: window.onload
+        window.onload = function() {
+            console.log("The page has fully loaded!");
+            alert("Welcome! The page has fully loaded.");
+        };
+
+        // Example 3: window.scrollTo
+        document.getElementById("scrollButton").addEventListener("click", function() {
+            // Scroll to the top of the page
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Smooth scrolling
+            });
+        });
+    </script>
+</body>
+</html>
