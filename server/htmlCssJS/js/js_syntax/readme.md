@@ -228,6 +228,31 @@ Uncaught SyntaxError: Identifier 'list' has already been declared
 
 ## Control FLow & Conditional Statements
 
+```js
+let time = 12;
+
+if (time < 12) {
+  document.getElementById("time message") = "Good Morning";
+}
+else if (time < 18) {
+  document.getElementById("time message") = "Good Afternoon";
+} else {
+  document.getElementById("time message") = "Good Evening";
+}
+```
+```js
+let count = 0;
+
+while (count < 5) {
+  console.log("Count is:", count);
+  count++; // Increment the counter
+}
+```
+```js
+for (let i = 0; i < 5; i++) {
+  console.log("Iteration:", i);
+}
+```
 ## JS Data & Time
 
 ```js
@@ -236,6 +261,7 @@ undefined
 > today
 2025-04-06T15:27:44.087Z
 ```
+checkout https://github.com/hualiu01/hualiu01-npm-dt 
 
 ### Time Zone
 
