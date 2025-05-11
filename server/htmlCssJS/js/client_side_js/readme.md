@@ -6,12 +6,17 @@
   - [`<noscript>` tag](#noscript-tag)
   - [Trigger Script on Intrinsic Events](#trigger-script-on-intrinsic-events)
   - [Common JS APIs](#common-js-apis)
-    - [DOM - get element](#dom---get-element)
+    - [DOM - get element by id](#dom---get-element-by-id)
+    - [DOM - get element by tag](#dom---get-element-by-tag)
+    - [DOM - get elements by index or "name" attributes](#dom---get-elements-by-index-or-name-attributes)
     - [DOM - create element](#dom---create-element)
     - [Element updates](#element-updates)
     - [Window object Methods and Events](#window-object-methods-and-events)
     - [XMLHttpRequest](#xmlhttprequest)
   - [Advanced JS APIs](#advanced-js-apis)
+  - [Glossaries](#glossaries)
+    - [AJAX](#ajax)
+  - [Cheat sheet](#cheat-sheet)
 
 ## Two ways to embed JS in HTML
 
@@ -53,10 +58,15 @@ It's used to handle situations where scripts have been disabled or a certain bro
 
 ![common js apis](./resource/common_js_apis.png)
 
-### DOM - get element
+### DOM - get element by id
+
+![](./resource/js-id-naming.png)
 
 __document.getElementById__
 - get __one specific__ HTML or XML element based on the id attribute in the node
+
+
+### DOM - get element by tag
 
 __document.getElementsByTagName__
 - get a __NodeList__ of elements with a specified tag name
@@ -71,6 +81,21 @@ __document.getElementsByTagName__
     }
     document.write(output)
     ```
+
+### DOM - get elements by index or "name" attributes
+
+Given
+```html
+<form name="my-form-name">
+    <label for="name">Name: </label>
+    <input type="text" id="name1" name="ny-name-field-name" placeholder="enter your name, this is a required field" required>
+    <input type="submit" />
+</form>
+```
+These are all valid ways to refer to the "name1" element:
+1. `document.forms[0].elements[1]`  # elements[0] is the label element
+2. `document.forms["my-form-name"].elements["ny-name-field-name"]`
+3. `document.my-form-name.my-name-field-name`
 
 ### DOM - create element
 
@@ -230,6 +255,10 @@ Example: Get the value of a button element
 
 ### Window object Methods and Events
 
+Window is global
+
+It is the top most level => thus can leave out the `window` keyword: `window.some_func()` === `some_func()` 
+
 <mark>See the <a href="./demo-window-open-onload-scrollto.html">./demo-window-open-onload-scrollto.html.html</a> for an example </mark>
 
 __window.open__
@@ -239,6 +268,16 @@ __window.onload__
 Do something when the __entire page (including all resources like images)__ has fully loaded.
 
 __window.scrollTo__
+
+__window.alert__ 
+Plain alert box
+example: `alert("message")`
+
+__window.confirm__
+Confirmation, OK/Cancel dialog
+
+__windown.prompt__
+Text-entry prompt
 
 
 ### XMLHttpRequest
@@ -252,3 +291,13 @@ https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
 
 https://developer.mozilla.org/en-US/docs/Web/API
 
+
+## Glossaries
+
+### AJAX
+
+“Asynchronous JavaScript and XML” that encompasses more than asynchronous server calls through JavaScript and XML. It is not programming language or technology but rather a programming concept. Ajax represents a series of techniques that provide richer, interactive web applications through HTML, JavaScript, Cascading style sheets, and modifying the web page through the Document Object Model. The name is misleading though because nowadays, JSON is commonly used instead of XML.
+
+## Cheat sheet
+
+[pdf here](./resource/js%20cheetsheet.pdf)
