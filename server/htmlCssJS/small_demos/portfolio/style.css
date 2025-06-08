@@ -1,0 +1,238 @@
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+#nav {
+    background-color: rgb(98, 35, 153);
+    color: white;
+    font-weight: 100;
+
+    display: flex; /* Enables Flexbox */
+    flex-direction: row; /* Aligns content vertically */
+    justify-content: space-between; /* Places items at the left and right edges */
+    align-items: stretch; /* Ensures all child elements stretch to the same height */
+    
+    padding-left: 20px; 
+    
+    position: sticky; /* Makes the navbar sticky */
+    top: 0; /* Ensures the navbar sticks to the top */
+}
+
+#nav-intro {
+    display: flex; /* Enables Flexbox for vertical alignment */
+    flex-direction: column; /* Aligns content vertically */
+    justify-content: center; /* Centers content vertically */
+
+    padding: 0 10px; /* Optional: Add padding for spacing */
+    box-sizing: border-box; /* Ensures padding is included in the height */
+}
+
+#nav-right {
+    font-size: 20px;
+    align-items: center; /* Aligns items vertically in the center */
+
+    display: flex;
+    flex-direction: row; /* Aligns content vertically */
+    margin: 0; /* Removes any extra margin */
+    padding: 0; /* Removes any extra padding */
+
+    /* border: 1px solid white; Optional: Add a border for visual separation */
+}
+
+#nav-intro-name {
+    font-size: 30px;
+
+    margin: 2px 0; /* Reduces vertical spacing between paragraphs */
+    padding-top: 20px;    /* Removes any extra padding */
+}
+
+.nav-intro-contact {
+    font-style: italic;
+
+    margin: 2px 0; /* Reduces vertical spacing between paragraphs */
+    padding: 0;  
+    padding-bottom: 2px;
+}
+
+.nav-right-item {
+    height: 100%;
+    width: 200px;
+    flex: 1; /* Ensures items grow to fit evenly within the container */
+    
+    /* padding-top:50px; */
+    text-align: center; /* Centers text horizontally */
+    margin: 0; /* Removes any extra margin */
+}
+.nav-right-item:hover {
+    background-color: white;
+    color: rgb(98, 35, 153);
+    text-decoration: underline;
+    font-weight: bold; /* Makes the text bold on hover */
+}
+
+.nav-right-item:active {
+    background-color: rgb(98, 35, 153); /* Changes background color on click */
+    color: white; /* Changes text color on click */
+    text-decoration: none; /* Removes underline on click */
+    font-weight: bold; /* Keeps the text bold on click */
+}
+
+.debug {
+    border: 1px solid rgb(7, 7, 7);
+}
+.sections {
+    padding: 50px; /* Optional: Add padding for spacing */
+    margin: 50px; /* Optional: Add margin for spacing */
+}
+
+#about {
+    display: flex; /* Enables Flexbox */
+    flex-direction: row;    
+    justify-content: center; /* Places items at the left and right edges */
+    gap: 100px;
+    align-items: center; /* Ensures all child elements stretch to the same height */
+}
+h1 {
+    font-size: 50px;
+    color: rgb(98, 35, 153);
+}
+h2 {
+    font-size: 30px;
+}
+.profile-pic {
+    height: 300px; /* Sets the height of the image */
+    width: auto; /* Maintains the aspect ratio of the image */
+    object-fit: cover; /* Ensures the image fits nicely within the height */
+    border-radius: 10px; /* Optional: Adds rounded corners for better aesthetics */
+}
+
+.float-boxes {
+    display: flex; /* Enables Flexbox */
+    flex-wrap: wrap; /* Allows items to wrap to the next row */
+    gap: 20px; /* Adds spacing between the boxes */
+    justify-content: left; /* Distributes boxes evenly across the row */
+    width: 80%;
+    padding-left: 80px;
+}
+
+.skill-box {
+    width: 220px; /* Sets the width of each box */
+    height: 220px; /* Sets the height of each box */
+    background-color: #ffffff; /* Optional: Adds a background color */
+    border: 1px solid #9b9a9a; /* Optional: Adds a border */
+    border-radius: 10px; /* Optional: Adds rounded corners for better aesthetics */
+    box-sizing: border-box; /* Ensures padding and border are included in the dimensions */
+    text-align: center; /* Centers the text inside the box */
+    display: flex; /* Enables Flexbox for content alignment */
+    flex-direction: column; /* Aligns content vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for better appearance */
+}
+
+.skill-box img.icon {
+    width: 30%; /* Sets the image width to 50% of the parent skill-box */
+    height: auto; /* Maintains the aspect ratio of the image */
+    display: block; /* Ensures the image behaves like a block element */
+    margin: 0 auto; /* Centers the image horizontally */
+}
+.skill-box h2 {
+    font-size: 18px; /* Sets the font size for the text */
+    margin-top: 10px; /* Adds spacing above the text */
+    margin-bottom: 0; /* Removes default bottom margin */
+}
+.skill-box p {
+    font-size: 20px; /* Sets the font size for the text */
+    margin-top: 10px; /* Adds spacing above the text */
+    margin-bottom: 0; /* Removes default bottom margin */
+}
+
+.recommendation-box {
+    width: 380px; /* Sets the width of the box */
+    height: 200px; /* Sets the height of the box */
+    background-color: #ffffff; /* Optional: Adds a background color */
+    border: 1px solid #9b9a9a; /* Optional: Adds a border */
+    border-radius: 10px; /* Optional: Adds rounded corners for better aesthetics */
+    box-sizing: border-box; /* Ensures padding and border are included in the dimensions */
+    text-align: center; /* Centers the text inside the box */
+    display: flex; /* Enables Flexbox for content alignment */
+    flex-direction: column; /* Aligns content vertically */
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+}
+
+form {
+    display: flex; /* Enables Flexbox for the form */
+    flex-direction: column; /* Stacks form elements vertically */
+    align-items: center; /* Centers form elements horizontally */
+    padding: 20px; /* Adds padding inside the form */
+    border: none; /* Removes default border */ 
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    background-color: #ffffff; /* Optional: Adds a white background */
+    
+}
+
+input, textarea {
+    width: 100%; /* Makes input and textarea take full width */
+    max-width: 600px; /* Limits the width */
+    margin-bottom: 10px; /* Adds spacing between elements */
+    padding: 10px; /* Adds padding inside the input/textarea */
+    border: 1px solid #030303; /* Adds a border */
+    border-radius: 5px; /* Adds rounded corners */
+    box-sizing: border-box; /* Includes padding in the width calculation */
+}
+
+.center-content {
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    gap: 5px; /* Adds spacing between elements */
+}
+
+button {
+    background-color: rgb(255, 255, 255); /* Sets the background color */ ;
+    color: rgb(98, 35, 153); /* Sets the text color */
+    border: 1px solid rgb(98, 35, 153); /* set border */
+    padding: 10px 20px; /* Adds padding for spacing */
+    font-size: 20px; /* Sets the font size */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    border-radius: 5px; /* Adds rounded corners for better aesthetics */
+    justify-self: right; /* Centers the button horizontally */ 
+}
+
+button:hover {
+    background-color: rgb(98, 35, 153); /* Changes background color on hover */
+    color: white
+}
+
+.project-box li {
+    padding-left: 50px;
+}
+
+.project-box hr {
+    border: 1px solid rgb(203, 203, 203); /* Sets the color of the horizontal line */
+    margin: 20px 0; /* Adds spacing above and below the line */
+    width: 80%; /* Makes the line take full width */
+    margin-left: auto; /* Pushes the line to the right */
+    margin-right: 150px
+}
+
+#home-btn-inner {
+    width: 50px; /* Sets the width of the button */
+    height: 50px; /* Sets the height of the button */
+    background-color: rgb(98, 35, 153); /* Sets the background color to purple */
+    border: none; /* Removes any default border */
+    border-radius: 50%; /* Makes the button round */
+    display: flex; /* Enables Flexbox for content alignment */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    color: white; /* Sets the text color to white */
+    font-size: 30px; /* Sets the font size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for better appearance */
+}
+
+#home-btn-inner:hover {
+    background-color: white;
+    color: rgb(98, 35, 153);
+    text-decoration: underline;
+}

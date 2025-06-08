@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="nav">  
+        <div id="nav-intro">
+            <p id="nav-intro-name">Zoey L</p>
+            <p class="nav-intro-contact">hlexample@example.com</p>
+            <p class="nav-intro-contact">+11233211233</p>
+        </div>
+        <div id="nav-right">
+            <div class="nav-right-item" id="nav-about" onclick="navItemClicked(event, 'about')">
+                <p>About Me</p>
+            </div>
+            <div class="nav-right-item" id="nav-skills" onclick="navItemClicked(event, 'skills')">
+                <p>Skills</p>
+            </div>
+            <div class="nav-right-item" id="nav-projects" onclick="navItemClicked(event, 'projects')">
+                <p>Projects</p>
+            </div>
+            <div class="nav-right-item" id="nav-recommendataions" onclick="navItemClicked(event, 'recommendations')">
+                <p>Recommendations</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="sections">
+            <div class="section" id="about">
+                <img src="resources/my.png" alt="Profile Picture" class="profile-pic">
+                <div class="about-text">
+                    <h1>Hi, I'm Zoey L</h1>
+                    <p style="color:gray; font-size: 20px;">
+                        Welcome to my portfolio! I am a passionate 
+                        software developer with a love for coding and 
+                        technology.<br></br>
+                        Feel free to explore my projects and skills.</p>
+                </div>
+            </div>
+                
+            <div class="section" id="skills">
+                <h1>Skills</h1>
+                <div class="float-boxes">
+                    <div class="skill-box">
+                        <img src="resources/aws-icon.png" alt="AWS Icon" class="icon">
+                        <h2> AWS</h2>
+                        <p>2 years experience</p>
+                    </div>
+                    <div class="skill-box">
+                        <img src="resources/gcp-icon.png" alt="GCP Icon" class="icon"> 
+                        <h2>GCP</h2>
+                        <p>2 years experience</p>
+                    </div>
+                    <div class="skill-box">
+                        <img src="resources/html-icon.png" alt="HTML Icon" class="icon"> 
+                        <h2>HTML</h2>
+                        <p>1 month experience</p>
+                    </div>
+                    <div class="skill-box">
+                        <img src="resources/css-icon.png" alt="CSS Icon" class="icon"> 
+                        <h2>CSS</h2>
+                        <p>1 month experience</p>
+                    </div>
+                    <div class="skill-box">
+                        <img src="resources/js-icon.jpeg" alt="JavaScript Icon" class="icon"> 
+                        <h2>JavaScript</h2>
+                        <p>1 month experience</p>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="section" id="projects">
+                <h1>Projects</h1>
+                <div class="project-boxes" style="padding-left: 80px;">
+                    <div class="project-box">
+                        <h2>Cooking App – AI-Powered Recipe Discovery</h2>
+                        <li>Developed a cooking app deployed on GCP that uses AI to suggest personalized recipes based on user preferences, dietary restrictions, and ingredient availability.</li>
+                        <hr class="project-divider">
+                    </div>  
+                    <div class="project-box">
+                        <h2>Smart Shopping Guide</h2>
+                        <li>Designed an AI-powered shopping assistant that lets users explore products through a visual map of price vs. popularity, with backend services running on GCP.</li>
+                        <hr class="project-divider">
+                    </div>  
+                    <div class="project-box">
+                        <h2>Photography Inspiration App</h2>
+                        <li>Developed an AI-based photo discovery tool that recommends images and tutorials, organized in a 2D visual layout by style and user rating; cloud-native with GCP deployment.</li>
+                        <hr class="project-divider">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section" id="recommendations">
+                <h1>Recommendations</h1>
+                <div class="float-boxes" id="recommendation-boxes">
+                    <div class="recommendation-box">
+                        <p>"Zoey is a dedicated and talented developer."</p>
+                    </div>
+                    <div class="recommendation-box">
+                        <p>"Her skills in web development are impressive."</p>
+                    </div>
+                    <div class="recommendation-box">
+                        <p>"Her skills in web development are impressive."</p>
+                    </div>
+                </div>
+                
+                <form id="recommendation-form" method="POST"  onsubmit="submitRecommendation(event)">
+                    <h2 id="leave-a-rec">Leave a Recommendation</h2>
+                    <input type="text" id="name" placeholder="Name (Optional)" autocomplete="name">
+                    <br></br>
+                    <textarea id="recommendation" placeholder="Message" rows="5" required></textarea>
+                    <br></br>
+                    <button type="submit" id="recommendation-btn">Submit</button>
+                </form>
+
+            </div>
+        </div>
+
+        
+        <button id="home-btn-inner" onclick="navItemClicked(event, 'about')">↑</button>
+        
+    </div>
+</html>

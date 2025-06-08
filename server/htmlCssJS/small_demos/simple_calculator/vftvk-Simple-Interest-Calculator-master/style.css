@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center;    /* Vertically center the content */
+    height: 100vh;          /* Make the body take the full viewport height */
+    margin: 0;              /* Remove default margin */
+    background-color: black;
+    font-family: Arial;
+    color: white;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+h1 {
+    color:gray;
+    font-family: Verdana;
+}
+
+.maindiv {
+    background-color: white;
+    color: black;
+    width: 300px;
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+#rate_val {
+    display: inline-block;
+    width: 50px; /* Adjust the width as needed */
+    text-align: right; /* Optional: Align text to the right for better appearance */
+}
+
