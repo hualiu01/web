@@ -42,6 +42,7 @@
       - [Anonymous Functions](#anonymous-functions)
       - [IIFE (Immediately Invoked Function Expression)](#iife-immediately-invoked-function-expression)
   - [JS Class \& Interface \& Inheritance](#js-class--interface--inheritance)
+    - [class definition](#class-definition)
     - [Prototypes](#prototypes)
   - [JS Data \& Time](#js-data--time)
     - [Time Zone](#time-zone)
@@ -49,6 +50,7 @@
     - [`console.log`](#consolelog)
     - [work with files](#work-with-files)
     - [JS with JSON](#js-with-json)
+      - [JSON obj \<=\> JS obj](#json-obj--js-obj)
   - [JS Error](#js-error)
     - [Error obj properties](#error-obj-properties)
 
@@ -800,6 +802,22 @@ An IIFE is a function that is executed immediately after it is defined.
 
 ## JS Class & Interface & Inheritance
 
+### class definition 
+
+```js
+class Book {
+  constructor(title, rating) {
+    this.title = title;
+    this.rating = rating;
+  }
+  describe() {
+    return `${this.title} has a rating of ${this.rating}`;
+  }
+}
+const b1 = new Book("Node Basics", 4.2);
+console.log(b1.describe());
+```
+
 ### Prototypes
 
 A function prototype lets you easily define and add properties or methods to an object. Prototypes exist for all objects that can be created with the keyword”new”. All object constructors create objects that inherit properties and methods that are defined by the prototype. At instantiation objects inherit the current state of the prototype. Note however, that scripts can override prototype properties and functions. Following is an example of using a prototype to add a method to the Car class:
@@ -846,6 +864,13 @@ for (let i = 0; i < orders.length; i++) {
 ### work with files
 
 ### JS with JSON
+
+#### JSON obj <=> JS obj
+```js
+let jsonData = '{"title":"Express 101","rating":5}';
+const bookObj = JSON.parse(jsonData);    // convert JSON to JS object
+const newJson = JSON.stringify(bookObj); // convert JS object to JSON
+```
 
 ## JS Error
 
