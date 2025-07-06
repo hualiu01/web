@@ -1,4 +1,5 @@
 # http server
+# to run this using make goal or npm start 
 core-http-server:
 	node src/core_http/server.js 
 
