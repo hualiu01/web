@@ -1,4 +1,4 @@
-let http = require('http');
+import { createServer } from 'http';
 
 const handleRequest = (req, res) => {
     const routes = {
@@ -29,4 +29,4 @@ const handleRequest = (req, res) => {
     }
 };
 
-http.createServer(handleRequest).listen(8080);//the server instance listens for http requests on port 6000
+createServer(handleRequest).listen(8080);//the server instance listens for http requests on port 6000

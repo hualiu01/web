@@ -16,6 +16,11 @@
 - [Node Package Manager (NPM)](#node-package-manager-npm)
   - [local install vs global install](#local-install-vs-global-install)
 - [Node.js + Express](#nodejs--express)
+  - [First Example](#first-example)
+  - [Async I/O w Callback Programming](#async-io-w-callback-programming)
+  - [Folder Structures](#folder-structures)
+  - [Env conf for COMMON/DEV/STG/PROD](#env-conf-for-commondevstgprod)
+  - [Secrets Storing](#secrets-storing)
 
 # Basics
 
@@ -184,6 +189,7 @@ Global installs should be used judiciously because all projects on that computer
 
 # Node.js + Express
 
+## First Example
 ```js
 // app.js
 const express = require("express");
@@ -227,3 +233,13 @@ app.post('/register', (req, res) => {
 app.listen(3000, () => console.log("Server running on port 3000"));
 ```
 - `app.use(express.json()); ` : This middleware is used to parse incoming JSON payloads in HTTP requests. It converts the JSON data in the request body into a JavaScript object and attaches it to `req.body`.
+
+## Async I/O w Callback Programming
+![](./rsc/nodejs%20http%20request%20pattern%201.png)
+![](./rsc/nodejs%20http%20request%20pattern%202.png)
+## Folder Structures
+
+
+## Env conf for COMMON/DEV/STG/PROD
+
+## Secrets Storing

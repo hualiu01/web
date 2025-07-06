@@ -1,6 +1,6 @@
-const fs = require('fs');
+import { readFile } from 'fs';
 // Asynchronously read the file 'sample.txt'
-fs.readFile('core_fs/sample.txt', 'utf8', (err, data) => {
+readFile('src/core_fs/sample.txt', 'utf8', (err, data) => {
     if (err) {
         console.error(err);
         return;
