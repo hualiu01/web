@@ -39,3 +39,5 @@ core-json:
 	node src/core_json/json_to_js_obj.js
 	@echo "\nConverting JS object to JSON ..."
 	node src/core_json/js_obj_to_json.js
+	@echo "\nConverting XML to JSON ..."
+	node src/core_json/xml_to_json.js 

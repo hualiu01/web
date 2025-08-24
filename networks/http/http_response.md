@@ -42,7 +42,9 @@ The `Content-Length` header describes the length of the response.
 
 The `Content-Type` header describes the media type of the resource returned (e.g. HTML document, image, video).
 
-# HTTP Response Body
+# HTTP Response Body/ i.e. "Payload"
+The payload is the data in the body of a response being transported from a server to the client due to an API request.
+
 Following the HTTP response headers is the HTTP response body. This is the main content of the HTTP response.
 
 This can contain images, video, HTML documents and other media types.
