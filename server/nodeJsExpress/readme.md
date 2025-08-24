@@ -39,6 +39,7 @@
     - [Session based](#session-based)
     - [Token based](#token-based)
     - [Passwordless](#passwordless)
+  - [Test: SuperTest (test http calls) + Jest](#test-supertest-test-http-calls--jest)
 
 # Basics
 
@@ -1285,3 +1286,132 @@ app.post('/verify-code', (req, res) => {
 // Start the Express server
 app.listen(3000, () => console.log('Server running on port 3000'));
 ```
+
+## Test: SuperTest (test http calls) + Jest
+
+Absolutely! Let’s create a **clean project structure** for using **Jest + SuperTest** to test an Express app. I’ll include folders and files so you can see how to organize it.
+
+---
+
+1. Folder structure
+
+```
+my-app/
+├── package.json
+├── app/
+│   ├── index.js          # Express app
+│   └── routes/
+│       └── hello.js      # Example route
+├── tests/
+│   └── app.test.js       # SuperTest + Jest tests
+└── jest.config.js        # Optional Jest config
+```
+
+---
+
+2. Install dependencies
+
+```bash
+npm init -y
+npm install express supertest jest
+```
+
+In `package.json` scripts:
+
+```json
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+
+---
+
+3. Express app example
+
+**`app/index.js`**:
+
+```javascript
+const express = require('express');
+const helloRoute = require('./routes/hello');
+
+const app = express();
+app.use(express.json());
+
+// Use route
+app.use('/hello', helloRoute);
+
+module.exports = app;
+```
+
+**`app/routes/hello.js`**:
+
+```javascript
+const express = require('express');
+const router = express.Router();
+
+router.get('/', (req, res) => {
+  res.status(200).json({ message: 'Hello World!' });
+});
+
+router.post('/', (req, res) => {
+  res.status(200).json({ data: req.body });
+});
+
+module.exports = router;
+```
+
+---
+
+4. SuperTest + Jest tests
+
+**`tests/app.test.js`**:
+
+```javascript
+const request = require('supertest');
+const app = require('../app/index');
+
+describe('API Tests', () => {
+
+  test('GET /hello should return Hello World', async () => {
+    const response = await request(app).get('/hello');
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual({ message: 'Hello World!' });
+  });
+
+  test('POST /hello should return the sent data', async () => {
+    const payload = { name: 'Alice' };
+    const response = await request(app)
+      .post('/hello')
+      .send(payload)
+      .set('Accept', 'application/json');
+    
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual({ data: payload });
+  });
+
+});
+```
+
+---
+
+5. Run tests
+
+```bash
+npm test
+```
+
+You should see both tests pass.
+
+---
+
+✅ **Why this structure is nice:**
+
+* `app/` → all Express-related code (routes, middlewares, server setup)
+* `tests/` → all Jest + SuperTest tests
+* Makes it easy to scale, add more routes, or test multiple modules
+* Tests run **without actually starting the HTTP server**, thanks to SuperTest
+
+---
+
